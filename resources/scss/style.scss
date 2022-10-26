@@ -13,12 +13,13 @@ body {
     }
     .add_todos_wrapper {
         input {
-            width: 200px;
+            width: 500px;
             border-radius: 5px;
             text-align: center;
-            color:#abc6de
+            color: #abc6de;
         }
         button {
+            margin-left:10px;
             border-radius: 20px;
             background: #abc6de;
             width: 70px;
@@ -32,11 +33,13 @@ body {
     }
 
     .added_todos_wrapper {
+        margin-top: 20px;
         text-align: left;
         display: inline-block;
         ul {
             .column {
-                margin: 10px 0;
+                width: 600px;
+                margin: 15px 0;
                 font-size: 20px;
                 display: flex;
                 justify-content: space-between;
@@ -47,8 +50,5 @@ body {
                 }
             }
         }
-    }
-    .test{
-      background: #000;
     }
 }

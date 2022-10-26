@@ -14,7 +14,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $fetch_todos = Todo::all();
+        // 削除されていないtodoのみ取得
+        $fetch_todos = Todo::where('deleted',0)->get();
         return view('index',compact('fetch_todos'));
     }
 
@@ -35,12 +36,13 @@ class TodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        // dd($request->get('created_at'));
-        Todo::create([
-            'todo' => $request->todo,
-        ]);
-        return to_route('index');
+    {   
+        if(!empty($request->todo)){
+            Todo::create([
+                'todo' => $request->todo,
+            ]);
+            return to_route('index');
+        }
     }
 
     /**
@@ -74,8 +76,7 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $todo = Todo::find($id);
-        dd($todo);
+
     }
 
     /**
@@ -86,6 +87,10 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+        // 削除ボタンが押されたら、deletedの値を0から1にする
+        $todo->deleted = 1;
+        $todo->save();
+        return to_route('index');
     }
 }
