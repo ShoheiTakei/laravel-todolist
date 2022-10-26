@@ -25,12 +25,13 @@
                 <div class="column">
                     <form action="{{route('update',['id'=>$todo->id])}}" method="POST">
                         @csrf
-                        <input name='checked' type="checkbox">
+                        <input id="checkTodo" name='checked' type="checkbox" {{ $todo->checked === true ? 'checked' : '' }}>
+                        <input class="text_todo_field" type="text" value="{{$todo->todo}}">
+                        <button>保存</button>
                     </form>
-                    <li>{{$todo->todo}}</li>
                     <form action="{{route('destroy',['id'=>$todo->id])}}" method="POST">
                         @csrf
-                        <button name='deleted'>削除</button>
+                        <button>削除</button>
                     </form>
                 </div>
                 @endforeach

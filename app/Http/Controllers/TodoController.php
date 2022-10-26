@@ -15,7 +15,7 @@ class TodoController extends Controller
     public function index()
     {
         // 削除されていないtodoのみ取得
-        $fetch_todos = Todo::where('deleted',0)->get();
+        $fetch_todos = Todo::where('deleted',false)->get();
         return view('index',compact('fetch_todos'));
     }
 
@@ -76,7 +76,12 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        $checkedFlag =$request->checked;
+        $todo = Todo::find($id);
+        $todo->checked = !$checkedFlag;
+        dd($checkedFlag);
+        $todo->save();
+        return to_route('index');
     }
 
     /**

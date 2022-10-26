@@ -11,6 +11,9 @@ body {
         border: none;
         height: 40px;
     }
+    .isChecked {
+        text-decoration: line-through;
+    }
     .add_todos_wrapper {
         input {
             width: 500px;
@@ -19,7 +22,7 @@ body {
             color: #abc6de;
         }
         button {
-            margin-left:10px;
+            margin-left: 10px;
             border-radius: 20px;
             background: #abc6de;
             width: 70px;
@@ -38,15 +41,21 @@ body {
         display: inline-block;
         ul {
             .column {
-                width: 600px;
+                // width: 600px;
                 margin: 15px 0;
                 font-size: 20px;
                 display: flex;
-                justify-content: space-between;
                 list-style: none;
                 input {
                     width: 20px;
                     height: 20px;
+                    line-height: 100%;
+                    color: black;
+                }
+                .check_box {
+                }
+                .text_todo_field {
+                    width: 400px;
                 }
             }
         }
