@@ -1,0 +1,55 @@
+// css reset
+@import "reset.scss";
+
+body {
+    width: 100%;
+    height: 100%;
+    background: #ebcb4b;
+    text-align: center;
+    input,
+    button {
+        border: none;
+        height: 40px;
+    }
+    .add_todos_wrapper {
+        input {
+            width: 200px;
+            border-radius: 5px;
+            text-align: center;
+            color:#abc6de
+        }
+        button {
+            border-radius: 20px;
+            background: #abc6de;
+            width: 70px;
+            transition-duration: 0.4s;
+        }
+        button:hover {
+            border-radius: 20px;
+            background: #8db8da;
+            transform: scale(1.1);
+        }
+    }
+
+    .added_todos_wrapper {
+        text-align: left;
+        display: inline-block;
+        ul {
+            .column {
+                margin: 10px 0;
+                font-size: 20px;
+                width: 300px;
+                display: flex;
+                justify-content: space-between;
+                list-style: none;
+                input {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+    .test{
+      background: #000;
+    }
+}
